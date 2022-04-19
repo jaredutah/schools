@@ -1,0 +1,30 @@
+{
+  "schools-schools-debug-stack-TableCD117FA1-MILMT0NEORI6": [
+    {
+      "PutRequest": {
+        "Item": {
+          "UNITID": { "S": "100654" },
+          "INSTNM": { "S": "Alabama A & M University" },
+          "IALIAS": { "S": "AAMU" },
+          "ADDR": { "S": "4900 Meridian Street" },
+          "CITY": { "S": "Normal" },
+          "STABBR": { "S": "AL" },
+          "ZIP": { "S": "35762" },
+          "WEBADDR": { "S": "www.aamu.edu/" },
+          "ADMINURL": { "S": "https://www.aamu.edu/admissions-aid/index.html" },
+          "FAIDURL": {
+            "S": "https://www.aamu.edu/admissions-aid/financial-aid/"
+          },
+          "APPLURL": {
+            "S": "https://www.aamu.edu/admissions-aid/undergraduate-admissions/apply-today.html"
+          },
+          "NPRICURL": {
+            "S": "www.aamu.edu/admissions-aid/tuition-fees/net-price-calculator.html"
+          },
+          "LONGITUD": { "S": "-86.568502" },
+          "LATITUDE": { "S": "34.783368" }
+        }
+      }
+    }
+  ]
+}

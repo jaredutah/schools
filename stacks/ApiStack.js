@@ -10,7 +10,7 @@ export default class ApiStack extends sst.Stack {
     // Create the API
     this.api = new sst.Api(this, 'Api', {
       routes: {
-        'GET /': 'src/lambda.handler',
+        'GET /schools': 'src/lambda.handler',
       },
     });
 
