@@ -7,27 +7,27 @@ export default class ApiStack extends sst.Stack {
   constructor(scope, id, props) {
     super(scope, id, props);
 
-    const { table } = props;
-
-    console.log('the table we just got was', table.tableName)
+    const { table, schoolPicturesTable } = props;
 
     // Create the API
     this.api = new sst.Api(this, 'Api', {
       defaults: {
         function: {
-          environment: {TABLE_NAME: table.tableName},
-          permissions: [table],
+          environment: {TABLE_NAME: table.tableName, SCHOOL_PICTURES_TABLE: schoolPicturesTable.tableName},
+          permissions: [table, schoolPicturesTable],
         }
       },
       routes: {
         'GET /schools': 'src/apiDataLambda.handler',
         'GET /ipeds': 'src/ipedsLambda.handler',
-        'POST /institutionalcharacteristics': 'src/insertLambda.handler'
+        'POST /institutionalcharacteristics': 'src/insertLambda.handler',
+        'POST /transform': 'src/transformLambda.handler',
+        'POST /schoolPictures': 'src/insertSchoolPicturesLambda.handler'
       },
     });
 
     // Allow the API to access the table
-    this.api.attachPermissions([table]);
+    this.api.attachPermissions([table, schoolPicturesTable]);
 
     // Show the API endpoint in the output
     this.addOutputs({

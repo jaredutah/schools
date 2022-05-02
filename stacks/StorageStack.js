@@ -21,6 +21,7 @@ export default class StorageStack extends sst.Stack {
         adminUrl: 'string',
         federalAidUrl: 'string',
         applicationUrl: 'string',
+        priceCalculatorUrl: 'string',
         longitude: 'string',
         latitude: 'string',
       },

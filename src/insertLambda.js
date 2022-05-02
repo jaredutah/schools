@@ -1,10 +1,12 @@
 import AWS from 'aws-sdk';
+
+import { notNullString } from '../utils/stringFunctions';
+
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
 import schoolData from '../hd2020.json';
 
 export async function handler(event) {
-  const makeEmptyString = (field) => field ?? '';
   const MAX_RECORDS = 25;
   let recordIndex = 0;
 
@@ -14,29 +16,27 @@ export async function handler(event) {
     return {
       PutRequest: {
         Item: {
-          unitId: makeEmptyString(school.UNITID),
-          institutionName: makeEmptyString(school.INSTNM),
-          alias: makeEmptyString(school.IALIAS),
-          address: makeEmptyString(school.ADDR),
-          city: makeEmptyString(school.CITY),
-          state: makeEmptyString(school.STABBR),
-          zip: makeEmptyString(school.ZIP),
-          url: makeEmptyString(school.WEBADDR),
-          adminUrl: makeEmptyString(school.ADMINURL),
-          federalAidUrl: makeEmptyString(school.FAIDURL),
-          applicationUrl: makeEmptyString(school.APPLURL),
-          longitude: makeEmptyString(school.LONGITUD),
-          latitude: makeEmptyString(school.LATITUDE),
+          unitId: notNullString(school.UNITID),
+          name: notNullString(school.INSTNM),
+          alias: notNullString(school.IALIAS),
+          address: notNullString(school.ADDR),
+          city: notNullString(school.CITY),
+          state: notNullString(school.STABBR),
+          zip: notNullString(school.ZIP),
+          url: notNullString(school.WEBADDR),
+          adminUrl: notNullString(school.ADMINURL),
+          federalAidUrl: notNullString(school.FAIDURL),
+          applicationUrl: notNullString(school.APPLURL),
+          priceCalculatorUrl: notNullString(school.NPRICURL),
+          longitude: notNullString(school.LONGITUD),
+          latitude: notNullString(school.LATITUDE),
         },
       },
     };
   });
 
   while (recordIndex <= requestItems.length) {
-    const currentRequestItems = requestItems.slice(
-      recordIndex,
-      recordIndex + MAX_RECORDS
-    );
+    const currentRequestItems = requestItems.slice(recordIndex, recordIndex + MAX_RECORDS);
 
     console.log('About to write', requestItems);
 
