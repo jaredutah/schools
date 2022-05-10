@@ -1,6 +1,6 @@
 import AWS from 'aws-sdk';
 import { notNullString } from '../utils/stringFunctions';
-import schoolData from '../schools.json';
+import schoolData from '../data/schools.json';
 
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 

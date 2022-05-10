@@ -101,7 +101,7 @@ export async function handler() {
         isMemberOfNJCAA: characteristicsSource.ASSOC3 === '1',
         isMemberOfNSCAA: characteristicsSource.ASSOC4 === '1',
         isMemberOfNCCAA: characteristicsSource.ASSOC5 === '1',
-        IsMemeberOfOther: characteristicsSource.ASSOC6 === '1',
+        IsMemberOfOther: characteristicsSource.ASSOC6 === '1',
         hasOnCampusHousing: characteristicsSource.ROOM === '1',
       };
 

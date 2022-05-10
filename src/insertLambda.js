@@ -4,7 +4,7 @@ import { notNullString } from '../utils/stringFunctions';
 
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
-import schoolData from '../hd2020.json';
+import schoolData from '../data/hd2020.json';
 
 export async function handler(event) {
   const MAX_RECORDS = 25;
